@@ -119,7 +119,7 @@ public class PlotterSalterSmoother {
             while (line != null) {
                 double y = Double.parseDouble(line.split(",")[1].trim());
 
-                ySaltArray.add(y);
+                ySmoothArray.add(y);
 
                 line = read.readLine();
             }
@@ -128,10 +128,6 @@ public class PlotterSalterSmoother {
             System.out.println("ERROR!");
         }
         
-        for(int i = 0; i < ySaltArray.size(); i++) {
-            ySmoothArray.add(ySaltArray.get(i));
-        }
-
         for(int i = 0; i < ySmoothArray.size(); i++) {
             int lowBound = i - upDownWindow;
             int highBound = i + upDownWindow;
