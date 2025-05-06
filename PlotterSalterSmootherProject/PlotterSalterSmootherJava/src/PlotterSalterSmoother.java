@@ -55,7 +55,7 @@ public class PlotterSalterSmoother {
             }
         output.close();
         } catch (IOException e) {
-            System.out.println("Womp womp");
+            System.out.println("ERROR!");
         }
     }
 
@@ -79,13 +79,13 @@ public class PlotterSalterSmoother {
             }
             read.close();
         } catch (IOException e) {
-            System.out.println("Womp womp 2");
+            System.out.println("ERROR!");
         }
         
         Random rng = new Random();
         for(int i = 0; i < ySaltArray.size(); i++) {
             double temp = ySaltArray.get(i);
-            temp = temp + rng.nextDouble(-100, 100);
+            temp = temp + rng.nextDouble(-100.0, 100.0);
             ySaltArray.set(i, temp);
         }
 
@@ -97,7 +97,7 @@ public class PlotterSalterSmoother {
             }
         output.close();
         } catch (IOException e) {
-            System.out.println("Womp womp 3");
+            System.out.println("ERROR!");
         }
     }
 
@@ -125,7 +125,7 @@ public class PlotterSalterSmoother {
             }
             read.close();
         } catch (IOException e) {
-            System.out.println("Womp womp 2");
+            System.out.println("ERROR!");
         }
         
         for(int i = 0; i < ySaltArray.size(); i++) {
@@ -159,7 +159,7 @@ public class PlotterSalterSmoother {
             }
         output.close();
         } catch (IOException e) {
-            System.out.println("Womp womp 4");
+            System.out.println("ERROR!");
         }
 
 

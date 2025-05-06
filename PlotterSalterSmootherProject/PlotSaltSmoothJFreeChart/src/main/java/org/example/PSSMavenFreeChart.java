@@ -7,6 +7,7 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -86,8 +87,21 @@ public class PSSMavenFreeChart {
      * @return the smoothed data XYSeries.
      */
     public XYSeries smooth() {
+        DescriptiveStatistics ds = new DescriptiveStatistics();
         XYSeries smoothSeries = new XYSeries("Smoothed Data from Previous Salting");
         int window = 5;
+        int count = 0;
+        ds.setWindowSize(window);
+        
+        for(Double y : ySalted) {
+            ds.addValue(y);
+            if(count >= window) {
+                ySmoothed.add(ds.getMean());
+            }
+            count++;
+        }
+        
+        /* 
         for(int i = 0; i < ySalted.size(); i++) {
             double rollAvg = 0;
             double numOfValues = 0;
@@ -106,7 +120,9 @@ public class PSSMavenFreeChart {
             double temp = rollAvg / numOfValues;
             ySmoothed.add(temp);
         }
-        for(int i = 0; i < xArray.size(); i++) {
+        */
+
+        for(int i = 0; i < ySmoothed.size(); i++) {
             smoothSeries.add(xArray.get(i), ySmoothed.get(i));
         }
         return smoothSeries;
