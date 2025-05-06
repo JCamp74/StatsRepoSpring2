@@ -13,4 +13,8 @@ This is the data set/are the data figures used in the report: https://docs.googl
 ### Dummy HashMap:
 During class, we were tasked with creating our own HashMap, and were to design a simple experiment using said class, whether it be the speed of said function or another analysis.
 
+#### Other Work:
+- Statistics Library
+- Formula Worksheet
+- Any other form of documentation, excel files, etc.
 
