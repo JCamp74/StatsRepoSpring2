@@ -141,6 +141,18 @@ public class StatsLibrary {
         System.out.println("At least " + inequal*100 + "% of values fall within [" + lowBound + "," + highBound + "]");
     }
 
+    //Performs a Uniform Distribution calculation for given values a(theta1), b(theta2), c(low bound of integral), and d(high bound of integral).
+    public double uniformDist(double a, double b, double c, double d) {
+        return (d-c)/(b-a);
+    }
+
+    //Performs the expected and variance calculations for the Uniform Distribution.
+    public void mvUniform(double a, double b) {
+        double mean = (a + b) / 2;
+        double variance = Math.pow((b - a), 2) / 12;
+        System.out.println("Expected and variance of Uniform Distribution: \nExpected: " + mean + " Variance: " + variance);
+    }
+
 
     //Performs set union
     public void union(ArrayList<Integer> a, ArrayList<Integer> b) {
@@ -203,16 +215,21 @@ public class StatsLibrary {
         b.add(6);
         b.add(2);
 
-        System.out.println(uni);
+        System.out.println("\n" + uni); //New line created to avoid confusion when running, as printed next to startup dialogue.
         System.out.println("The mean of the given list is: " + mean(list));
         System.out.println("The median of the given list is: " + median(list));
         System.out.println("The mode of the given list is: " + mode(list));
         System.out.println("The standard deviation of the given list is: " + standardDev(list));
         System.out.println("A Choose B: " + combination(5, 5));
         System.out.println("Binomial Distribution for given scenario: " + binomialDistribution(3, 2, (double) 1/6,(double) 5/6));
+        mvBinomial(3, 2, (double) 1/6, (double) 5/6);
         System.out.println("Geometric distribution for given scenario: " + geometricDistribution(5, (double) 1/6, (double) 5/6));
+        mvGeometric((double) 1/6, (double) 5/6);
         System.out.println("Poisson distribution for given scenario: " + poissonDist(2.5, 2));
+        mvPoisson(2.5);
         chebyshevs(5, 2, 2);
+        uniformDist(1, 19, 7, 15);
+        mvUniform(1, 19);
 
         //Separating Set Functions from the mathematical functions.
         System.out.println("\nSets used in set operations: \n" + a + "\n" + b);
